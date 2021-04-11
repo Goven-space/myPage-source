@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-11 16:03:45
- * @LastEditTime: 2021-04-11 12:12:53
+ * @LastEditTime: 2021-04-11 21:29:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testing\src\App.vue
@@ -98,9 +98,6 @@ export default {
  
   //   }
   // },
-  mounted:function(){
-    console.log(1)
-  },
   methods: {
     checkPage() {
       var index = Math.floor(Math.random() * this.checkActive.inLength);

@@ -56,8 +56,8 @@ export default {
   props: ["pageNames"],
   methods: {
     pushBut(e) {
-      var index = e.target.getAttribute("index");
-      console.log;
+      var index = e.currentTarget.getAttribute("index");
+      
       this.pushName = this.pageNames[index];
       this.$emit("checkPage", this.pushName);
     }
@@ -70,6 +70,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  z-index:100;
   transition: left 0.1s linear;
   &.show {
     left: -80px;
@@ -104,11 +105,13 @@ export default {
       span {
         display: block;
         pointer-events: none;
+        color:black;
         i {
           display: block;
           height: 50px;
           line-height: 50px;
           font-size: 30px;
+          
           pointer-events: none;
         }
       }
