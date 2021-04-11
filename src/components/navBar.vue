@@ -4,31 +4,37 @@
       <a href="http://www.github.com" target="_blank">BLOG</a>
       <ul class="nav-items">
         <li :class="{push:pushName == pageNames[0]}" @click="pushBut" index="0">
-          <span>
-            <i class="iconfont icon-home"></i>
-          </span>
-          <span class="describe">Home</span>
+          <router-link to="/">
+            <span>
+              <i class="iconfont icon-home"></i>
+            </span>
+            <span class="describe">Home</span>
+          </router-link>
         </li>
-        <li :class="{push:pushName == pageNames[1]}" @click="pushBut" index = "1">
-          <!-- <router-link to="/home"></router-link> -->
+        <li :class="{push:pushName == pageNames[1]}" @click="pushBut" index="1">
+          <router-link to="/aboutMe">
             <span>
               <i class="iconfont icon-icon31"></i>
             </span>
             <span class="describe">About</span>
+          </router-link>
         </li>
-        <li :class="{push:pushName == pageNames[3]}" @click="pushBut" index="2">
+        <li :class="{push:pushName == pageNames[2]}" @click="pushBut" index="2">
+          <router-link to="/myProject">
             <span>
               <i class="iconfont icon-project"></i>
             </span>
             <span class="describe">Project</span>
+          </router-link>
         </li>
         <li :class="{push:pushName == pageNames[3]}" @click="pushBut" index="3">
+          <router-link to="/website">
             <span>
               <i class="iconfont icon-link"></i>
             </span>
             <span class="describe">Link</span>
+          </router-link>
         </li>
-        
       </ul>
     </div>
     <div class="show-but" @click="close = !close">
@@ -40,36 +46,33 @@
 </template>
 
 <script>
-
-
 export default {
-  data(){
-    return{
+  data() {
+    return {
       pushName: this.pageNames[0],
       close: true
-    }
+    };
   },
-  props:["pageNames"],
-  methods:{
-    pushBut(e){
-      var index = e.target.getAttribute("index")
-      this.pushName = this.pageNames[index]
-      this.$emit("checkPage",this.pushName)
+  props: ["pageNames"],
+  methods: {
+    pushBut(e) {
+      var index = e.target.getAttribute("index");
+      console.log;
+      this.pushName = this.pageNames[index];
+      this.$emit("checkPage", this.pushName);
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
-
-.left-bar{
-  position:absolute;
+.left-bar {
+  position: absolute;
   top: 0;
   left: 0;
   transition: left 0.1s linear;
-  &.show{
-    left:-80px;
+  &.show {
+    left: -80px;
   }
 }
 .nav {
@@ -79,7 +82,7 @@ export default {
   background-color: white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 5px 6px 13px 0 rgba(0,0,0,0.08);
+  box-shadow: 5px 6px 13px 0 rgba(0, 0, 0, 0.08);
   > a {
     display: block;
     margin: 0 auto;
@@ -98,7 +101,7 @@ export default {
       border-radius: 50px;
       box-shadow: 1px 1px 5px #cdcdcd, -3px -7px 3px #fafafa;
       cursor: pointer;
-      span{
+      span {
         display: block;
         pointer-events: none;
         i {
@@ -138,17 +141,17 @@ export default {
     }
   }
 }
-.show-but{
+.show-but {
   float: left;
   width: 40px;
   height: 40px;
   margin: 20px;
   background-color: #ff9800;
   border-radius: 5px;
-  i{
+  i {
     height: 40px;
     line-height: 40px;
-    font-size:30px;
+    font-size: 30px;
     color: white;
     font-weight: bloder;
   }

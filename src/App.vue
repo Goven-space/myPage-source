@@ -1,15 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-11 16:03:45
- * @LastEditTime: 2021-04-09 17:10:00
+ * @LastEditTime: 2021-04-11 12:12:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testing\src\App.vue
 -->
 <template>
   <div id="app">
-    <load v-if="!firstLoad" ></load>
-    <div v-show="firstLoad" >
+    <!-- <load v-if="!firstLoad" ></load> -->
+    <!-- <div v-show="firstLoad" > -->
       <navBar @checkPage="checkPage" :pageNames="pageNames"></navBar>
       <transition
         name="custom-classes-transition"
@@ -17,19 +17,20 @@
         :enter-active-class="inActive"
         :leave-active-class="outActive"
       >
-        <component :is="showPage" ></component>
+      <router-view></router-view>
+        <!-- <component :is="showPage" ></component> -->
       </transition>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import firstPage from "./components/firstPage";
+// import firstPage from "./components/firstPage";
 import navBar from "./components/navBar";
-import aboutMe from "./components/aboutMe";
-import website from "./components/website";
-import load from "./components/load";
-import myProject from "./components/myProject"
+// import aboutMe from "./components/aboutMe";
+// import website from "./components/website";
+// import load from "./components/load";
+// import myProject from "./components/myProject"
 
 var pageNames = ["home", "about","a-myProject", "website"];
 var inAnis = [
@@ -63,7 +64,7 @@ var outAnis = [
 export default {
   data() {
     return {
-      firstLoad: false,
+      // firstLoad: false,
       pageNames,
       showPage: pageNames[0],
       checkActive: {
@@ -84,26 +85,29 @@ export default {
     },
   },
   components: {
-    home: firstPage,
+    // home: firstPage,
     navBar,
-    about: aboutMe,
-    website,
-    load,
-    "a-myProject":myProject
+    // about: aboutMe,
+    // website,
+    // load,
+    // "a-myProject":myProject
   },
+  // mounted:function(){
+  //   window.onload = () => {
+  //     this.firstLoad = true
+ 
+  //   }
+  // },
   mounted:function(){
-    window.onload = () => {
-      this.firstLoad = true
-      console.log(1)
-    }
+    console.log(1)
   },
   methods: {
-    checkPage(pushName) {
+    checkPage() {
       var index = Math.floor(Math.random() * this.checkActive.inLength);
       this.checkActive.inAni = inAnis[index];
       index = Math.floor(Math.random() * this.checkActive.outLength);
       this.checkActive.outAni = outAnis[index];
-      this.showPage = pushName;
+      // this.showPage = pushName;
     },
   },
 };
