@@ -1,4 +1,5 @@
 <template>
+<!-- 技术链接 -->
   <div class="wapper">
     <div class="container">
       <div class="item">
@@ -185,7 +186,7 @@ export default {};
         border: 0.5px solid #959898;
         padding: 4px;
         margin: 2px;
-        height: 290px;
+        min-height: 290px;
         overflow: hidden;
         img {
           width: 100%;

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-11 16:03:45
- * @LastEditTime: 2021-04-11 21:29:47
+ * @LastEditTime: 2021-04-13 14:45:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testing\src\App.vue
@@ -10,7 +10,11 @@
   <div id="app">
     <!-- <load v-if="!firstLoad" ></load> -->
     <!-- <div v-show="firstLoad" > -->
+      <!-- 左边的列表 -->
       <navBar @checkPage="checkPage" :pageNames="pageNames"></navBar>
+      <!-- 音乐播放器 -->
+      <musicPlayer></musicPlayer>
+      <!-- 路由切换动画 -->
       <transition
         name="custom-classes-transition"
         mode="out-in"
@@ -18,21 +22,17 @@
         :leave-active-class="outActive"
       >
       <router-view></router-view>
-        <!-- <component :is="showPage" ></component> -->
       </transition>
-    <!-- </div> -->
   </div>
 </template>
 
 <script>
-// import firstPage from "./components/firstPage";
 import navBar from "./components/navBar";
-// import aboutMe from "./components/aboutMe";
-// import website from "./components/website";
-// import load from "./components/load";
-// import myProject from "./components/myProject"
+import musicPlayer from "./components/musicPlayer";
 
 var pageNames = ["home", "about","a-myProject", "website"];
+// 路由切换动画
+//进入动画
 var inAnis = [
   "animate__bounceInDown",
   "animate__flipInX",
@@ -47,6 +47,7 @@ var inAnis = [
   "animate__slideInDown",
   "animate__slideInRight",
 ];
+// 离开动画
 var outAnis = [
   "animate__bounceOutUp",
   "animate__fadeOutTopRight",
@@ -85,12 +86,8 @@ export default {
     },
   },
   components: {
-    // home: firstPage,
     navBar,
-    // about: aboutMe,
-    // website,
-    // load,
-    // "a-myProject":myProject
+    musicPlayer
   },
   // mounted:function(){
   //   window.onload = () => {
@@ -120,10 +117,14 @@ export default {
 }
 body,
 a,
-li {
+li,
+button {
   padding: 0;
   margin: 0;
   list-style: none;
   text-decoration: none;
+}
+html,body,#app{
+  height:100%;
 }
 </style>

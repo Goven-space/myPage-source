@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-09 16:58:15
- * @LastEditTime: 2021-04-10 23:05:55
+ * @LastEditTime: 2021-04-13 14:32:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \myPage\src\router\router.js
@@ -15,7 +15,6 @@ import myProject from '../components/myProject'
 import website from '../components/website'
 
 Vue.use(VueRouter)
-
 export default new VueRouter({
     routes: [{
         path: '/',

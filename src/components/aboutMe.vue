@@ -3,7 +3,7 @@
     <!-- about me标题 -->
     <div class="title">
       <span>About Me</span>
-      <p>dolor sit amet,consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. this dolor sit amet.</p>
+      <p>"There are only two creatures," says a proverb, "who can surmount the pyramids the eagle and the snail."</p>
     </div>
     <!-- 具体内容 -->
     <div class="content">
@@ -11,7 +11,7 @@
       <div class="describe">
         <span>My name is</span>
         <div class="name-box">
-          <span class="myName" text-data="Gioven Chen">Gioven Chen</span>
+          <span class="myName" text-data="Goven Chen">Goven Chen</span>
         </div>
         <span class="iconfont icon-zhuanyerencai">Designer / Developer</span>
         <p>I am 18 years old front-end developer from China</p>

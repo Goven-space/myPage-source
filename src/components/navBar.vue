@@ -3,15 +3,15 @@
     <div class="nav">
       <a href="http://www.github.com" target="_blank">BLOG</a>
       <ul class="nav-items">
-        <li :class="{push:pushName == pageNames[0]}" @click="pushBut" index="0">
-          <router-link to="/">
+        <li  @click="pushBut(0)" index="0">
+          <router-link to="/" exact>
             <span>
               <i class="iconfont icon-home"></i>
             </span>
             <span class="describe">Home</span>
           </router-link>
         </li>
-        <li :class="{push:pushName == pageNames[1]}" @click="pushBut" index="1">
+        <li  @click="pushBut(1)" index="1">
           <router-link to="/aboutMe">
             <span>
               <i class="iconfont icon-icon31"></i>
@@ -19,7 +19,7 @@
             <span class="describe">About</span>
           </router-link>
         </li>
-        <li :class="{push:pushName == pageNames[2]}" @click="pushBut" index="2">
+        <li  @click="pushBut(2)" index="2">
           <router-link to="/myProject">
             <span>
               <i class="iconfont icon-project"></i>
@@ -27,7 +27,7 @@
             <span class="describe">Project</span>
           </router-link>
         </li>
-        <li :class="{push:pushName == pageNames[3]}" @click="pushBut" index="3">
+        <li  @click="pushBut(3)" index="3">
           <router-link to="/website">
             <span>
               <i class="iconfont icon-link"></i>
@@ -49,17 +49,16 @@
 export default {
   data() {
     return {
-      pushName: this.pageNames[0],
+
       close: true
     };
   },
+  // 父类传入的切换的路由的名字，方便设置点击样式
   props: ["pageNames"],
   methods: {
-    pushBut(e) {
-      var index = e.currentTarget.getAttribute("index");
-      
-      this.pushName = this.pageNames[index];
-      this.$emit("checkPage", this.pushName);
+    pushBut(index) {
+
+      this.$emit("checkPage", this.pageNames[index]);
     }
   }
 };
@@ -132,7 +131,7 @@ export default {
         }
       }
     }
-    .push {
+    .router-link-active {
       box-shadow: inset 1px 1px 5px #cdcdcd, inset -3px -3px 3px #fafafa;
       i {
         color: #1488eb;

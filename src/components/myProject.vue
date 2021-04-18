@@ -1,52 +1,151 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-09 16:12:29
- * @LastEditTime: 2021-04-11 23:56:28
+ * @LastEditTime: 2021-04-13 14:19:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \myPage\src\components\project.vue
 -->
 <template>
-    <div class="wrapper" v-on="{mousedown:slideStart,mouseup:slideStop}">
-      <div class="container" >
-        <ul class="project-list" :style="`transform:rotateY(${rotationAngle}deg)`">
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-          <li class="project-item"></li>
-        </ul>
-      </div>
+  <div
+    class="wrapper"
+    v-on="{mousedown:slideStart,mouseup:slideStop}"
+    @mousemove="mouseDown && move($event)"
+  >
+    <div class="container">
+      <ul class="project-list" :style="{transform}">
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 1"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=1 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(1)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/eStudy/index.html" target="_blank"></a>
+          </div>
+          <span>作业提交系统</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 2;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=2 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(2)}px`" >
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/mi/index.html"  target="_blank"></a>
+          </div>
+          <span>小米商城</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 3;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=3 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(3)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/musicplayer/index.html"  target="_blank"></a>
+          </div>
+          <span>音乐播放器</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 4;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=4 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(4)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/mobileAlbum/index.html"  target="_blank"></a>
+          </div>
+          <span>移动端相册</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 5;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=5 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(5)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/scratch/index.html"  target="_blank"></a>
+          </div>
+          <span>刮刮乐</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 6;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=6 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(6)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/flash/index.html"  target="_blank"></a>
+          </div>
+          <span>百度图片的动画效果</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 7;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=7 }"
+        >
+          <div :style="`backgroundPositionX:${backgroundMove(7)}px`">
+            <a href="http://vip.chanke.xyz/v03017/chanke/myProject/bootstrap/index.html"  target="_blank"></a>
+          </div>
+          <span>Bootstrap首页</span>
+        </li>
+        <li
+          class="project-item"
+          @mouseenter="hightLight = 8;"
+          @mouseout="hightLight=false"
+          :class="{dark:hightLight&&hightLight !=8 }"
+        >
+        <div :style="`backgroundPositionX:${backgroundMove(8)}px`">
+          <a href="http://vip.chanke.xyz/v03017/chanke/myProject/clock/index.html"  target="_blank"></a>
+        </div>
+        <span>CSS仿生ios时钟</span>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 <script>
 export default {
   data() {
     return {
-        xStart :null,
-        distance:0,
-        rotationAngle:0
+      xStart: null,
+      mouseDown: false,
+      distance: 0,
+      rotationAngle: 0,
+      //鼠标移动项目元素上点亮
+      hightLight: false,
     };
   },
   methods: {
     slideStart(e) {
-      e.currentTarget.addEventListener('mousemove',this.move)
-      this.xStart = e.clientX
+      this.mouseDown = true;
+      this.xStart = e.clientX;
     },
-    move(e){
-        let xEnd = e.clientX
-        this.distance = xEnd -this.xStart
-        this.xStart = e.clientX
-        this.rotationAngle += this.distance/2000 *360
-        
+    move(e) {
+      let xEnd = e.clientX;
+      this.distance = xEnd - this.xStart;
+      this.xStart = e.clientX;
+      this.rotationAngle += (this.distance / 2000) * 360;
+      
+    
     },
-    slideStop(e){
-        e.currentTarget.removeEventListener('mousemove',this.move)
+    slideStop() {
+      this.mouseDown = false;
+    }
+  },
+  computed: {
+    transform() {
+      // console.log(2)
+      return "rotateY(" + this.rotationAngle + "deg)";
+    },
+    backgroundMove(){
+      // let angle = 
+      console.log(this.rotationAngle)
+      return function(index){
+        return Math.abs((this.rotationAngle-90-45*(index-1))%180-20)/180*-200
+      }
     }
   }
 };
@@ -55,7 +154,12 @@ export default {
 .wrapper {
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 100%;
+  // background-color:lightgreen;
+  // background-image:linear-gradient(45deg, #1abc9c, transparent);
+  // background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%)
+  // background-size:cover;
 }
 .container {
   position: absolute;
@@ -63,12 +167,12 @@ export default {
   left: 50%;
   // width:300px;
   // height:400px;
-  margin-top: -150px;
-  margin-left: -100px;
+  margin-top: -250px;
+  margin-left: -140px;
 
   .project-list {
-    width: 200px;
-    height: 300px;
+    width: 280px;
+    height: 500px;
     transform-style: preserve-3d;
     // border: 1px solid black;
     // animation: run 4s linear infinite;
@@ -79,58 +183,120 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      border: 1px solid black;
       backface-visibility: hidden;
-      user-select:none;
+      user-select: none;
+      transition: opacity 0.5s linear;
+      a{
+        display:inline-block;
+        width:100%;
+        height:100%;
+        user-select: none;
+          -webkit-user-drag: none;
+      }
+      span {
+        font-size: 20px;
+        color: white;
+        font-weight: 800;
+        user-select: none;
+      }
       &:nth-child(1) {
         transform: translateZ(-450px);
-        background: purple;
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-1.jpg");
+        }
       }
       &:nth-child(2) {
-        transform: rotateY(-36deg) translateZ(-450px);
-        background: blue;
+        transform: rotateY(-45deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-2.jpg");
+        }
       }
       &:nth-child(3) {
-        background: green;
-        transform: rotateY(-72deg) translateZ(-450px);
+        transform: rotateY(-90deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-3.jpg");
+        }
       }
       &:nth-child(4) {
-        background: pink;
-        transform: rotateY(-108deg) translateZ(-450px);
+        transform: rotateY(-135deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: 600px;
+          background-image: url("../assets/myProject-4.jpg");
+        }
       }
       &:nth-child(5) {
-        background: red;
-        transform: rotateY(-144deg) translateZ(-450px);
+        
+        transform: rotateY(-180deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-position-y:-60px;
+          background-size:600px;
+          // background-size: cover;
+          background-image: url("../assets/myProject-5.png");
+        }
       }
       &:nth-child(6) {
-        background: orange;
-        transform: rotateY(-180deg) translateZ(-450px);
+    
+        transform: rotateY(-225deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-6.jpg");
+        }
       }
       &:nth-child(7) {
-        background: darkgray;
-        transform: rotateY(-216deg) translateZ(-450px);
+     
+        transform: rotateY(-270deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-7.png");
+        }
       }
       &:nth-child(8) {
-        background: gold;
-        transform: rotateY(-252deg) translateZ(-450px);
-      }
-      &:nth-child(9) {
-        background: yellow;
-        transform: rotateY(-288deg) translateZ(-450px);
-      }
-      &:nth-child(10) {
-        background: yellowgreen;
-        transform: rotateY(-324deg) translateZ(-450px);
+     
+        transform: rotateY(-315deg) translateZ(-450px);
+        div {
+          width: 100%;
+          height: 90%;
+          user-select: none;
+          -webkit-user-drag: none;
+          background-size: cover;
+          background-image: url("../assets/myProject-8.jpg");
+        }
       }
     }
+    .dark {
+      opacity: 0.3;
+    }
   }
-//   @keyframes run {
-//     0% {
-//       transform: rotateY(0deg);
-//     }
-//     100% {
-//       transform: rotateY(360deg);
-//     }
-//   }
 }
 </style>
