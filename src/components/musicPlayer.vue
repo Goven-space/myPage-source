@@ -35,7 +35,7 @@
 </template>
 <script>
 // 音乐列表
-var musicList = [{id:'277822',name:'电台情歌-莫文蔚'},{id:'410518453',name:'The Truth That You Leave-Pianoboy高至豪'},{id:'1328045658',name:'洪荒之力'},{id:'1372402767',name:'DJ OKAWARI'},{id:'1413443773',name:'少女日记-栗先达'},{id:'560494138',name:'CMJ-所念皆星河'}]
+var musicList = [{id:'28907016',name:'Illusionary Daytime-Shirfine'},{id:'410518453',name:'The Truth That You Leave-Pianoboy高至豪'},{id:'1328045658',name:'洪荒之力'},{id:'1372402767',name:'DJ OKAWARI'},{id:'1427515199',name:'Melancholy Galaxy-CMJ'},{id:'443242',name:'Summer-久石譲'}]
 export default {
   data() {
     return {
