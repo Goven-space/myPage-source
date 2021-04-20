@@ -99,8 +99,7 @@ export default {
   },
   created: function() {
     window.onload = () => {
-        this.$refs.firstLoad.style.display = "none";
-      
+      this.$refs.firstLoad.style.display = "none";
     };
   },
   methods: {
@@ -109,7 +108,6 @@ export default {
       this.checkActive.inAni = inAnis[index];
       index = Math.floor(Math.random() * this.checkActive.outLength);
       this.checkActive.outAni = outAnis[index];
-      // this.showPage = pushName;
     }
   }
 };
@@ -137,27 +135,22 @@ body,
 #app {
   min-height: 100vh;
 }
-// .firstLoad{
-//   position:relative;
-//   z-index:1000;
-//   width:100%;
-//   height:100%;
-//   background:white;
 .loading {
-  text-align: center;
-  padding-top: 10%;
   // display: block;
-  position: relative;
+  position: absolute;
   z-index: 1000;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  text-align: center;
+  padding-top: 10%;
   background: white;
-  h2{
-    margin-top:30px;
+  h2 {
+    margin-top: 30px;
   }
   img {
     display: block;
-    margin:30px auto;
+    margin: 30px auto;
   }
 
   /*

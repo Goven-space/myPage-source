@@ -158,9 +158,9 @@ export default {
   // background-color:lightgreen;
   // background-image:linear-gradient(45deg, #1abc9c, transparent);
   // background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
-  // background-image: linear-gradient(to top, #09203f 0%, #537895 100%)
-  background-image:url("../assets/project-bg.jpg");
-  background-size:cover;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  // background-image:url("../assets/project-bg.jpg");
+  // background-size:cover;
 }
 .container {
   position: absolute;
@@ -170,6 +170,7 @@ export default {
   // height:400px;
   margin-top: -250px;
   margin-left: -140px;
+  perspective: 1300px;
 
   .project-list {
     width: 250px;
@@ -184,6 +185,7 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
+      
       backface-visibility: hidden;
       user-select: none;
       transition: opacity 0.5s linear;
@@ -201,7 +203,7 @@ export default {
         user-select: none;
       }
       &:nth-child(1) {
-        transform: translateZ(-450px);
+        transform: translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -212,7 +214,7 @@ export default {
         }
       }
       &:nth-child(2) {
-        transform: rotateY(-45deg) translateZ(-450px);
+        transform: rotateY(-45deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -223,7 +225,7 @@ export default {
         }
       }
       &:nth-child(3) {
-        transform: rotateY(-90deg) translateZ(-450px);
+        transform: rotateY(-90deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -234,7 +236,7 @@ export default {
         }
       }
       &:nth-child(4) {
-        transform: rotateY(-135deg) translateZ(-450px);
+        transform: rotateY(-135deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -246,7 +248,7 @@ export default {
       }
       &:nth-child(5) {
         
-        transform: rotateY(-180deg) translateZ(-450px);
+        transform: rotateY(-180deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -260,7 +262,7 @@ export default {
       }
       &:nth-child(6) {
     
-        transform: rotateY(-225deg) translateZ(-450px);
+        transform: rotateY(-225deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -272,7 +274,7 @@ export default {
       }
       &:nth-child(7) {
      
-        transform: rotateY(-270deg) translateZ(-450px);
+        transform: rotateY(-270deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
@@ -284,7 +286,7 @@ export default {
       }
       &:nth-child(8) {
      
-        transform: rotateY(-315deg) translateZ(-450px);
+        transform: rotateY(-315deg) translateZ(-400px);
         div {
           width: 100%;
           height: 90%;
