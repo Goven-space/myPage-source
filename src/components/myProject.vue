@@ -154,12 +154,13 @@ export default {
 .wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   // background-color:lightgreen;
   // background-image:linear-gradient(45deg, #1abc9c, transparent);
   // background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%)
-  // background-size:cover;
+  // background-image: linear-gradient(to top, #09203f 0%, #537895 100%)
+  background-image:url("../assets/project-bg.jpg");
+  background-size:cover;
 }
 .container {
   position: absolute;
@@ -171,8 +172,8 @@ export default {
   margin-left: -140px;
 
   .project-list {
-    width: 280px;
-    height: 500px;
+    width: 250px;
+    height: 380px;
     transform-style: preserve-3d;
     // border: 1px solid black;
     // animation: run 4s linear infinite;
@@ -251,7 +252,7 @@ export default {
           height: 90%;
           user-select: none;
           -webkit-user-drag: none;
-          background-position-y:-60px;
+          background-position-y:-100px;
           background-size:600px;
           // background-size: cover;
           background-image: url("../assets/myProject-5.png");

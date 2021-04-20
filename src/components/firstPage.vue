@@ -1,7 +1,7 @@
 <template>
   <div class="container" >
     <div class="content">
-      <h2>hello</h2>
+      <h1>hello</h1>
       <div class="show">
         I am a
         <span>{{nickname}}</span>|
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-var nameList = ["Hiker.", "Baking lover.", "stylist."];
+var nameList = ["Hiker.", "Baking lover.", "Engineer."];
 
 export default {
   data() {
@@ -87,6 +87,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$fonColor:rgba(0,0,0,0.8);
 .container {
   width: 100%;
   min-width: 800px;
@@ -99,9 +100,9 @@ export default {
 .content {
   display: inline-block;
   vertical-align: middle;
-  color: white;
+  color: $fonColor;
   .show {
-    color: white;
+    color: $fonColor;
     font-size: 50px;
     span {
       font-weight: bolder;
@@ -117,7 +118,7 @@ export default {
           vertical-align: middle;
           width: 10px;
           height: 10px;
-          background-color: white;
+          background-color: $fonColor;
           border-radius: 5px;
       }
   }

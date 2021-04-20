@@ -9,20 +9,30 @@
 <template>
   <div id="app">
     <!-- <load v-if="!firstLoad" ></load> -->
-    <!-- <div v-show="firstLoad" > -->
-      <!-- 左边的列表 -->
-      <navBar @checkPage="checkPage" :pageNames="pageNames"></navBar>
-      <!-- 音乐播放器 -->
-      <musicPlayer></musicPlayer>
-      <!-- 路由切换动画 -->
-      <transition
-        name="custom-classes-transition"
-        mode="out-in"
-        :enter-active-class="inActive"
-        :leave-active-class="outActive"
-      >
+    <div ref="firstLoad" class="loading">
+      <h2>玩命加载中...</h2>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <img src="./assets/dancingkitty.gif" />
+    </div>
+    <!-- 左边的列表 -->
+    <navBar @checkPage="checkPage" :pageNames="pageNames"></navBar>
+    <!-- 音乐播放器 -->
+    <musicPlayer></musicPlayer>
+    <!-- 路由切换动画 -->
+    <transition
+      name="custom-classes-transition"
+      mode="out-in"
+      :enter-active-class="inActive"
+      :leave-active-class="outActive"
+    >
       <router-view></router-view>
-      </transition>
+    </transition>
   </div>
 </template>
 
@@ -30,7 +40,7 @@
 import navBar from "./components/navBar";
 import musicPlayer from "./components/musicPlayer";
 
-var pageNames = ["home", "about","a-myProject", "website"];
+var pageNames = ["home", "about", "a-myProject", "website"];
 // 路由切换动画
 //进入动画
 var inAnis = [
@@ -45,7 +55,7 @@ var inAnis = [
   "animate__zoomInRight",
   "animate__zoomInUp",
   "animate__slideInDown",
-  "animate__slideInRight",
+  "animate__slideInRight"
 ];
 // 离开动画
 var outAnis = [
@@ -59,22 +69,20 @@ var outAnis = [
   "animate__zoomOutDown",
   "animate__zoomOutRight",
   "animate__zoomOutUp",
-  "animate__slideOutDown",
+  "animate__slideOutDown"
 ];
 
 export default {
   data() {
     return {
-      // firstLoad: false,
       pageNames,
       showPage: pageNames[0],
       checkActive: {
         inAni: inAnis[0],
         outAni: outAnis[0],
         inLength: inAnis.length,
-        outLength: outAnis.length,
-        
-      },
+        outLength: outAnis.length
+      }
     };
   },
   computed: {
@@ -83,18 +91,18 @@ export default {
     },
     outActive() {
       return "animate__animated " + this.checkActive.outAni;
-    },
+    }
   },
   components: {
     navBar,
     musicPlayer
   },
-  // mounted:function(){
-  //   window.onload = () => {
-  //     this.firstLoad = true
- 
-  //   }
-  // },
+  created: function() {
+    window.onload = () => {
+        this.$refs.firstLoad.style.display = "none";
+      
+    };
+  },
   methods: {
     checkPage() {
       var index = Math.floor(Math.random() * this.checkActive.inLength);
@@ -102,8 +110,8 @@ export default {
       index = Math.floor(Math.random() * this.checkActive.outLength);
       this.checkActive.outAni = outAnis[index];
       // this.showPage = pushName;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -124,7 +132,149 @@ button {
   list-style: none;
   text-decoration: none;
 }
-html,body,#app{
-  height:100%;
+html,
+body,
+#app {
+  min-height: 100vh;
+}
+// .firstLoad{
+//   position:relative;
+//   z-index:1000;
+//   width:100%;
+//   height:100%;
+//   background:white;
+.loading {
+  text-align: center;
+  padding-top: 10%;
+  // display: block;
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: white;
+  h2{
+    margin-top:30px;
+  }
+  img {
+    display: block;
+    margin:30px auto;
+  }
+
+  /*
+ * Loading Dots
+ * Can we use pseudo elements here instead :after?
+ */
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.6em;
+    height: 0.6em;
+    margin: 0.19em;
+    background: #007db6;
+    border-radius: 0.6em;
+    -webkit-animation: loading 1s infinite alternate;
+    -moz-animation: loading 1s infinite alternate;
+    -o-animation: loading 1s infinite alternate;
+    -ms-animation: loading 1s infinite alternate;
+    animation: loading 1s infinite alternate;
+  }
+
+  /*
+ * Dots Colors
+ * Smarter targeting vs nth-of-type?
+ */
+  span:nth-of-type(2) {
+    background: #008fb2;
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    -ms-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+  span:nth-of-type(3) {
+    background: #009b9e;
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    -o-animation-delay: 0.4s;
+    -ms-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+  span:nth-of-type(4) {
+    background: #00a77d;
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.6s;
+    -o-animation-delay: 0.6s;
+    -ms-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  span:nth-of-type(5) {
+    background: #00b247;
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    -o-animation-delay: 0.8s;
+    -ms-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+  span:nth-of-type(6) {
+    background: #5ab027;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  span:nth-of-type(7) {
+    background: #a0b61e;
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    -o-animation-delay: 1.2s;
+    -ms-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+  }
+
+  /*
+ * Animation keyframes
+ * Use transition opacity instead of keyframes?
+ */
+  @-webkit-keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 </style>

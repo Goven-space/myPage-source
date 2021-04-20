@@ -31,17 +31,15 @@
 export default {
   data(){
     return {
-      bgAni:null
     }
   },
   mounted:function(){
-    var that = this
-    that.bgAni = setTimeout(function(){
-      that.$refs.wapper.classList.add("container-ani")
-    },2000)
+    this.$nextTick(() => {
+      this.$refs.wapper.classList.add("container-ani")
+    },0)
   },
   beforeDestroy:function(){
-    clearTimeout(this.bgAni)
+    
     this.$refs.wapper.classList.remove("container-ani")
     
   }
