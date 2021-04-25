@@ -24,7 +24,7 @@
         >
           <div :style="`backgroundPosition:${bgPosition(index)}%`">
             <a
-              :href="`http://vip.chanke.xyz/v03017/chanke/myProject/${value.urlName}/index.html`"
+              :href="`http://goven-space.github.io/myProject/${value.urlName}/index.html`"
               target="_blank"
             ></a>
           </div>
