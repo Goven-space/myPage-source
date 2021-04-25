@@ -135,8 +135,11 @@ body,
 #app {
   min-height: 100vh;
 }
+
+
+
+//页面加载动画
 .loading {
-  // display: block;
   position: absolute;
   z-index: 1000;
   box-sizing: border-box;

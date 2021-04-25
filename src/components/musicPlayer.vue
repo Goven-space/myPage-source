@@ -34,8 +34,8 @@
   </div>
 </template>
 <script>
-// 音乐列表
-var musicList = [{id:'28907016',name:'Illusionary Daytime-Shirfine'},{id:'410518453',name:'The Truth That You Leave-Pianoboy高至豪'},{id:'1328045658',name:'洪荒之力'},{id:'1372402767',name:'DJ OKAWARI'},{id:'1427515199',name:'Melancholy Galaxy-CMJ'},{id:'443242',name:'Summer-久石譲'}]
+// 音乐列表 
+var musicList = [{id:'28907016',name:'Illusionary Daytime-Shirfine'},{id:'410518453',name:'The Truth That You Leave-Pianoboy高至豪'},{id:'1328045658',name:'洪荒之力'},{id:'1372402767',name:'DJ OKAWARI'},{id:'1427515199',name:'Melancholy Galaxy-CMJ'},{id:'443242',name:'Summer-久石譲'},{id:857896,name:'A Little Story-Valentin'}]
 export default {
   data() {
     return {
